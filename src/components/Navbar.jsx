@@ -1,13 +1,13 @@
 import React from 'react';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import { Facebook, Twitter } from 'lucide-react';
 import logoImage from '../img/test.jpeg';
 
 const MaterialNavbar = () => {
     const menuItems = [
-        { label: 'Servizi', href: '#servizi' },
-        { label: 'Eventi', href: '#eventi' },
-        { label: 'Enoteca', href: '#enoteca' }
+        { label: 'Home', href: '/' }, // Aggiunto il link alla home page
+        { label: 'Servizi', href: '/servizi' },
+        { label: 'Eventi', href: '/eventi' },
+        { label: 'Enoteca', href: '/enoteca' },
     ];
 
     return (
@@ -15,13 +15,11 @@ const MaterialNavbar = () => {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
                 {/* Social Icons */}
                 <div className="flex items-center space-x-3">
-                    <FacebookIcon
+                    <Facebook
                         className="text-gray-600 hover:text-blue-600 w-6 h-6 cursor-pointer"
-                        fontSize="medium"
                     />
-                    <TwitterIcon
+                    <Twitter
                         className="text-gray-600 hover:text-blue-400 w-6 h-6 cursor-pointer"
-                        fontSize="medium"
                     />
                 </div>
 

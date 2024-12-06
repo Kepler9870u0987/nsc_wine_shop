@@ -1,8 +1,5 @@
 import React from 'react';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
     const companyInfo = {
@@ -30,7 +27,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-gray-900 text-white py-12 px-4 fixed bottom-0 left-0 right-0">
+        <footer className="bg-gray-900 text-white py-12 px-4 relative">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* Company Info */}
                 <div>
@@ -74,10 +71,10 @@ const Footer = () => {
                 <div className="flex flex-col items-center">
                     <h3 className="font-bold mb-4">Seguici</h3>
                     <div className="flex space-x-4 justify-center">
-                        <FacebookIcon className="text-gray-400 hover:text-white cursor-pointer" />
-                        <TwitterIcon className="text-gray-400 hover:text-white cursor-pointer" />
-                        <InstagramIcon className="text-gray-400 hover:text-white cursor-pointer" />
-                        <LinkedInIcon className="text-gray-400 hover:text-white cursor-pointer" />
+                        <Facebook className="text-gray-400 hover:text-white cursor-pointer" />
+                        <Twitter className="text-gray-400 hover:text-white cursor-pointer" />
+                        <Instagram className="text-gray-400 hover:text-white cursor-pointer" />
+                        <Linkedin className="text-gray-400 hover:text-white cursor-pointer" />
                     </div>
                     <div className="mt-4 text-sm text-gray-500 text-center">
                         © {new Date().getFullYear()} WineShop NSC. Tutti i diritti riservati.
@@ -88,6 +85,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+
     );
 };
 

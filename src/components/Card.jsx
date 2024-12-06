@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Wine, Calendar, Award } from 'lucide-react';
 
 const Card = () => {
@@ -7,19 +8,22 @@ const Card = () => {
             title: 'Servizi',
             description: 'Un viaggio sensoriale attraverso vini accuratamente selezionati',
             icon: Wine,
-            accent: 'red'
+            accent: 'red',
+            link: '/servizi'
         },
         {
             title: 'Eventi',
             description: 'Esperienze esclusive e appuntamenti dedicati agli amanti del vino',
             icon: Calendar,
-            accent: 'amber'
+            accent: 'amber',
+            link: '/eventi'
         },
         {
             title: 'Enoteca',
             description: 'Etichette rare e preziose, un patrimonio enologico unico',
             icon: Award,
-            accent: 'purple'
+            accent: 'purple',
+            link: '/enoteca'
         }
     ];
 
@@ -37,7 +41,8 @@ const Card = () => {
                             };
 
                             return (
-                                <div
+                                <Link
+                                    to={section.link}
                                     key={index}
                                     className={`
                                         group relative p-8 
@@ -110,7 +115,7 @@ const Card = () => {
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             );
                         })}
                     </div>

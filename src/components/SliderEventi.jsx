@@ -54,7 +54,7 @@ const SliderEventi = () => {
 
     const slideVariants = {
         initial: {
-            opacity: 0,
+            opacity: 1,
             x: direction > 0 ? 1000 : -1000
         },
         enter: {
@@ -63,9 +63,9 @@ const SliderEventi = () => {
             opacity: 1
         },
         exit: {
-            zIndex: 0,
+            zIndex: 1,
             x: direction < 0 ? 1000 : -1000,
-            opacity: 0
+            opacity: 1
         }
     };
 
@@ -75,7 +75,7 @@ const SliderEventi = () => {
     };
 
     if (!isLoaded) {
-        return <div className="w-full h-56 md:h-96 bg-gray-200 animate-pulse">Loading...</div>;
+        return <div className="w-full h-56 md:h-[500px] bg-gray-200 animate-pulse">Loading...</div>;
     }
 
     return (
@@ -85,7 +85,7 @@ const SliderEventi = () => {
             data-carousel="static"
         >
             {/* Carousel wrapper */}
-            <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <div className="relative h-56 overflow-hidden rounded-lg md:h-[500px]">
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentIndex}

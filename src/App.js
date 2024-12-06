@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Card from './components/Card';
 import Eventi from './pages/Eventi';
+import Servizi from './pages/Servizi';  // Aggiunto import Servizi
 
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <Routes>
-        {/* Home Page */}
         <Route
           path="/"
           element={
@@ -24,10 +24,9 @@ const App = () => {
             </div>
           }
         />
-        {/* Altra Pagina */}
         <Route path="/eventi" element={<Eventi />} />
+        <Route path="/servizi" element={<Servizi />} />  {/* Aggiunta rotta Servizi */}
       </Routes>
-      {/* Footer visibile in tutte le pagine */}
       <Footer />
     </div>
   );

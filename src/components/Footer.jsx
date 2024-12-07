@@ -16,8 +16,7 @@ const Footer = () => {
         { title: "Home", link: "/" },
         { title: "Servizi", link: "/servizi" },
         { title: "Enoteca", link: "/enoteca" },
-        { title: "Eventi", link: "/eventi" },
-        { title: "Contatti", link: "/contatti" }
+        { title: "Eventi", link: "/eventi" }
     ];
 
     const legalLinks = [

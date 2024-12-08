@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, Send, AlertTriangle } from 'lucide-react'
+import { Mail, Send, AlertTriangle, ExternalLink } from 'lucide-react'
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -32,17 +32,17 @@ const ContactForm = () => {
         const errors = {}
 
         if (!formData.email.trim()) {
-            errors.email = 'Email is required'
+            errors.email = 'Email è richiesta'
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            errors.email = 'Email is invalid'
+            errors.email = 'Email non valida'
         }
 
         if (!formData.subject.trim()) {
-            errors.subject = 'Subject is required'
+            errors.subject = 'Oggetto è richiesto'
         }
 
         if (!formData.message.trim()) {
-            errors.message = 'Message is required'
+            errors.message = 'Messaggio è richiesto'
         }
 
         return errors
@@ -70,23 +70,28 @@ const ContactForm = () => {
             })
 
             // Optional: Show success message or toast notification
-            alert('Message sent successfully!')
+            alert('Messaggio inviato con successo!')
         } catch (error) {
-            console.error('Submission error:', error)
-            alert('Failed to send message. Please try again.')
+            console.error('Errore durante l\'invio:', error)
+            alert('Impossibile inviare il messaggio. Riprova.')
         } finally {
             setIsSubmitting(false)
         }
     }
 
+    const handleEmailDirectOpen = () => {
+        const mailtoLink = `mailto:?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
+        window.open(mailtoLink, '_blank');
+    }
+
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="w-full">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-                    Contact Us
+                <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-center text-gray-900">
+                    Contattaci
                 </h2>
-                <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-                    Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.
+                <p className="mb-8 font-light text-center text-gray-500 sm:text-xl">
+                    Hai bisogno di assistenza? Vuoi inviare un feedback? Compila il modulo qui sotto.
                 </p>
 
                 <form
@@ -98,9 +103,9 @@ const ContactForm = () => {
                     <div>
                         <label
                             htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 flex items-center"
+                            className="block mb-2 text-sm font-medium text-gray-900 flex items-center"
                         >
-                            <Mail className="mr-2 size-4" /> Your email
+                            <Mail className="mr-2 size-4" /> La tua email
                         </label>
                         <input
                             type="email"
@@ -108,13 +113,12 @@ const ContactForm = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="name@company.com"
+                            placeholder="nome@azienda.com"
                             className={`
                 shadow-sm bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5
                 ${formErrors.email
                                     ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                                     : 'border-gray-300 focus:ring-primary-500 focus:border-primary-500'}
-                dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
               `}
                             required
                         />
@@ -129,9 +133,9 @@ const ContactForm = () => {
                     <div>
                         <label
                             htmlFor="subject"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900"
                         >
-                            Subject
+                            Oggetto
                         </label>
                         <input
                             type="text"
@@ -139,13 +143,12 @@ const ContactForm = () => {
                             name="subject"
                             value={formData.subject}
                             onChange={handleChange}
-                            placeholder="Let us know how we can help you"
+                            placeholder="In cosa possiamo aiutarti?"
                             className={`
                 block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border p-2.5
                 ${formErrors.subject
                                     ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                                     : 'border-gray-300 focus:ring-primary-500 focus:border-primary-500'}
-                dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
               `}
                             required
                         />
@@ -160,9 +163,9 @@ const ContactForm = () => {
                     <div>
                         <label
                             htmlFor="message"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                            className="block mb-2 text-sm font-medium text-gray-900"
                         >
-                            Your message
+                            Il tuo messaggio
                         </label>
                         <textarea
                             id="message"
@@ -170,13 +173,12 @@ const ContactForm = () => {
                             rows={6}
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Leave a comment..."
+                            placeholder="Lascia un commento..."
                             className={`
                 block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border p-2.5
                 ${formErrors.message
                                     ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                                     : 'border-gray-300 focus:ring-primary-500 focus:border-primary-500'}
-                dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
               `}
                         />
                         {formErrors.message && (
@@ -186,25 +188,28 @@ const ContactForm = () => {
                         )}
                     </div>
 
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="
-              py-3 px-5 text-sm font-medium text-center text-white 
-              rounded-lg bg-primary-700 sm:w-fit 
-              hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300
-              dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800
-              flex items-center justify-center gap-2
-              disabled:opacity-50 disabled:cursor-not-allowed
-            "
-                    >
-                        {isSubmitting ? (
-                            <>Sending... <Send className="size-4 animate-pulse" /></>
-                        ) : (
-                            <>Send message <Send className="size-4" /></>
-                        )}
-                    </button>
+                    {/* Button Container */}
+                    <div className="space-y-4">
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="
+                w-full py-3 px-5 text-sm font-medium text-center text-white 
+                rounded-lg bg-black sm:w-full
+                hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300
+                flex items-center justify-center gap-2
+                disabled:opacity-50 disabled:cursor-not-allowed
+              "
+                        >
+                            {isSubmitting ? (
+                                <>Invio in corso... <Send className="size-4 animate-pulse" /></>
+                            ) : (
+                                <>Invia messaggio <Send className="size-4" /></>
+                            )}
+                        </button>
+
+                    </div>
                 </form>
             </div>
         </section>

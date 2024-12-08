@@ -4,7 +4,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Card from './components/Card';
 import Eventi from './pages/Eventi';
-import Servizi from './pages/Servizi';  // Aggiunto import Servizi
+import Servizi from './pages/Servizi';
+import Enoteca from './pages/Enoteca';
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
           }
         />
         <Route path="/eventi" element={<Eventi />} />
-        <Route path="/servizi" element={<Servizi />} />  {/* Aggiunta rotta Servizi */}
+        <Route path="/servizi" element={<Servizi />} />
+        <Route path="/enoteca" element={<Enoteca />} />
       </Routes>
       <Footer />
     </div>

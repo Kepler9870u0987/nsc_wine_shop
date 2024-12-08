@@ -17,7 +17,7 @@ const Servizi = () => {
                 </div>
 
                 <div className="flex">
-                    <div className="w-1/2 pr-8 overflow-y-auto">
+                    <div className="w-1/2 overflow-y-auto">
                         <ListaServizi />
                     </div>
 

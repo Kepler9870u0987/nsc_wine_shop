@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactForm from '../components/ContactForm';
-import ListaServizi from '../components/ListaServizi';
+import WineCatalog from '../components/WineCatalog';
 
 function Enoteca() {
     return (
@@ -12,13 +12,13 @@ function Enoteca() {
 
             <main className="flex-grow container mx-auto px-4 py-8">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">I nostri servizi</h1>
-                    <p className="text-xl text-gray-600">Scopri tutti i servizi che abbiamo preparato per te</p>
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">I nostri vini</h1>
+                    <p className="text-xl text-gray-600">Scopri tutti i vini che abbiamo preparato per te</p>
                 </div>
 
                 <div className="flex">
                     <div className="w-1/2 overflow-y-auto">
-                        <ListaServizi />
+                        <WineCatalog />
                     </div>
 
                     <div className="border-r border-gray-300 mx-8"></div>

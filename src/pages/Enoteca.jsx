@@ -10,20 +10,20 @@ function Enoteca() {
                 {/* Navbar content */}
             </nav>
 
-            <main className="flex-grow container mx-auto px-4 py-8">
+            <main className="flex-grow container mx-auto py-8">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">I nostri vini</h1>
                     <p className="text-xl text-gray-600">Scopri tutti i vini che abbiamo preparato per te</p>
                 </div>
 
-                <div className="flex">
-                    <div className="w-1/2 overflow-y-auto">
+                <div className="flex max-lg:flex-col">
+                    <div className="flex-1 overflow-y-auto">
                         <WineCatalog />
                     </div>
 
                     <div className="border-r border-gray-300 mx-8"></div>
 
-                    <div className="w-1/2 pl-8 overflow-y-auto">
+                    <div className="flex-1 pl-8 overflow-y-auto">
                         <ContactForm />
                     </div>
                 </div>

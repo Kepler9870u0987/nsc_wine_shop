@@ -103,7 +103,7 @@ const ContactForm = () => {
                     <div>
                         <label
                             htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 flex items-center"
+                            className="mb-2 text-sm font-medium text-gray-900 flex items-center"
                         >
                             <Mail className="mr-2 size-4" /> La tua email
                         </label>

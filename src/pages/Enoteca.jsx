@@ -1,7 +1,10 @@
 import React from 'react';
-import ContactForm from '../components/ContactForm';
 import WineCatalog from '../components/WineCatalog';
 import BestSellerSlider from '../components/BestSellerSlider';
+import ParallaxBanner from '../components/ParallaxBanner';
+import StickyContactForm from '../components/StickyContactForm';
+import ContactForm from '../components/ContactForm';
+
 
 function Enoteca() {
     return (
@@ -18,10 +21,11 @@ function Enoteca() {
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     <BestSellerSlider />
                 </div>
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">I nostri vini</h1>
-                    <p className="text-xl text-gray-600">Scopri tutti i vini che abbiamo preparato per te</p>
-                </div>
+
+                <div class="border-t border-gray-300 w-2/3 mx-auto mt-12"></div>
+
+                {/*Banner NSC */}
+                <ParallaxBanner />
 
                 <div className="flex max-lg:flex-col">
                     <div className="flex-1 overflow-y-auto">
@@ -30,7 +34,8 @@ function Enoteca() {
 
                     <div className="border-r border-gray-300 mx-8"></div>
 
-                    <div className="flex-1 pl-8 overflow-y-auto">
+                    {/* Sticky Contact Form */}
+                    <div className="flex-none">
                         <ContactForm />
                     </div>
                 </div>

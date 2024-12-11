@@ -1,6 +1,7 @@
 import React from 'react';
 import ContactForm from '../components/ContactForm';
 import WineCatalog from '../components/WineCatalog';
+import BestSellerSlider from '../components/BestSellerSlider';
 
 function Enoteca() {
     return (
@@ -11,6 +12,12 @@ function Enoteca() {
             </nav>
 
             <main className="flex-grow container mx-auto py-8">
+                <div className="text-center mb-8">
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">I nostri vini migliori</h1>
+                </div>
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    <BestSellerSlider />
+                </div>
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">I nostri vini</h1>
                     <p className="text-xl text-gray-600">Scopri tutti i vini che abbiamo preparato per te</p>

@@ -4,12 +4,22 @@ const WineCard = ({
     imageUrl = "https://storage.googleapis.com/qoup-prod-app-image-api-kx8-prod-menu-images/DATI/products/resized/3266/1727084527.png"
 }) => {
     return (
-        <div className="flex items-center justify-center bg-gray-300 relative rounded-[16px] shadow-lg h-80 w-56 border border-gray-500">
+        <div className="flex items-center justify-center bg-gray-200 relative rounded-[16px] shadow-lg h-80 w-56 border border-gray-400">
+
+
+            {/* Ombra */}
+            <img
+                src='/img/wineShadow.webp'
+                alt="Wine Card Example"
+                className="absolute w-28 h-60 left-6 blur-md z-0"
+            />
+
+
             {/* Immagine */}
             <img
                 src="https://storage.googleapis.com/qoup-prod-app-image-api-kx8-prod-menu-images/DATI/products/resized/3266/1727084527.png"
                 alt="Wine Card Example"
-                className="absolute w-28 h-full object-cover left-0"
+                className="absolute w-28 h-60 object-cover left-0 z-1"
             />
 
             {/* Testo posizionato in alto a destra */}

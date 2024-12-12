@@ -1,7 +1,7 @@
 import React from 'react';
 import WineCatalog from '../components/WineCatalog';
 import BestSellerSlider from '../components/BestSellerSlider';
-import ParallaxBanner from '../components/ParallaxBanner';
+import Banner from '../components/Banner';
 import StickyContactForm from '../components/StickyContactForm';
 import ContactForm from '../components/ContactForm';
 
@@ -22,23 +22,32 @@ function Enoteca() {
                     <BestSellerSlider />
                 </div>
 
-                <div class="border-t border-gray-300 w-2/3 mx-auto mt-12"></div>
+                <div class="border-t border-gray-300 w-2/3 mx-auto mt-12 mb-12"></div>
 
                 {/*Banner NSC */}
-                <ParallaxBanner />
+                <div className='pb-12'>
+                    <Banner />
+                </div>
 
-                <div className="flex max-lg:flex-col">
-                    <div className="flex-1 overflow-y-auto">
+                <div className="flex flex-col justify-center items-center h-full mb-12">
+                    <h1 className="text-4xl my-6 font-bold text-gray-800 mb-4">I nostri vini</h1>
+                    <p className="text-xl text-gray-500">Scopri tutti i vini che abbiamo preparato per te</p>
+                </div>
+
+                <div className="flex max-lg:flex-col pt-16">
+                    <div className="w-2/3 overflow-y-auto">
                         <WineCatalog />
                     </div>
 
-                    <div className="border-r border-gray-300 mx-8"></div>
+                    <div className="border-r border-gray-300 mx-8 my-8"></div>
 
-                    {/* Sticky Contact Form */}
-                    <div className="flex-none">
-                        <ContactForm />
+                    <div className="w-1/3">
+                        <div id="contact-form-wrapper" className="sticky top-16">
+                            <ContactForm />
+                        </div>
                     </div>
                 </div>
+
             </main>
 
 
